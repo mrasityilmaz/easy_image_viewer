@@ -36,11 +36,13 @@ Future<Dialog?> showImageViewer(
     void Function()? onViewerDismissed,
     bool useSafeArea = false,
     bool swipeDismissible = false,
+    bool? showBottomControls,
     Color backgroundColor = _defaultBackgroundColor,
     String closeButtonTooltip = _defaultCloseButtonTooltip,
     Color closeButtonColor = _defaultCloseButtonColor}) {
   return showImageViewerPager(context, SingleImageProvider(imageProvider),
       immersive: immersive,
+      showBottomControls: showBottomControls,
       onViewerDismissed:
           onViewerDismissed != null ? (_) => onViewerDismissed() : null,
       useSafeArea: useSafeArea,
@@ -65,6 +67,7 @@ Future<Dialog?> showImageViewer(
 Future<Dialog?> showImageViewerPager(
     BuildContext context, EasyImageProvider imageProvider,
     {bool immersive = true,
+    bool? showBottomControls,
     void Function(int)? onPageChanged,
     void Function(int)? onViewerDismissed,
     bool useSafeArea = false,
@@ -82,6 +85,7 @@ Future<Dialog?> showImageViewerPager(
       useSafeArea: useSafeArea,
       builder: (context) {
         return EasyImageViewerDismissibleDialog(imageProvider,
+        showBottomDotsAndPageChanger: showBottomControls ?? false,
             immersive: immersive,
             onPageChanged: onPageChanged,
             onViewerDismissed: onViewerDismissed,

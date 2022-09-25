@@ -62,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     context,
                     Image.network("https://picsum.photos/id/1001/5616/3744")
                         .image,
+                        
                     swipeDismissible: true);
               }),
           ElevatedButton(
@@ -84,6 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ].toList(),
                     initialIndex: 2);
                 showImageViewerPager(context, customImageProvider,
+                showBottomControls: true,
                     onPageChanged: (page) {
                   // print("Page changed to $page");
                 }, onViewerDismissed: (page) {
